@@ -45,7 +45,7 @@ if __name__ == '__main__':
     list_cont = loop.run_until_complete(read_contacts_from_db(loop))
     co_list = []
     for mail in list_cont:
-        co1 = send_mail(to=mail[3], name=f'{mail[1]} {mail[2]}')
+        co1 = send_mail(address=mail[3], name=f'{mail[1]} {mail[2]}')
         co_list.append(co1)
     loop.run_until_complete(asyncio.gather(*co_list))
     loop.close()
