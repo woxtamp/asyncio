@@ -5,7 +5,7 @@ import aiosmtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-MAIL_PARAMS = {'TLS': True, 'host': 'smtp.gmail.com', 'password': 'password', 'user': 'user', 'port': 587}
+PARAMS = {'TLS': True, 'host': 'smtp.gmail.com', 'password': 'password', 'user': 'user', 'port': 587}
 
 
 async def read_contacts_from_db(loop):
@@ -17,7 +17,7 @@ async def read_contacts_from_db(loop):
 
 
 async def send_mail(address, name, **params):
-    mail_params = params.get("mail_params", MAIL_PARAMS)
+    mail_params = params.get("mail_params", PARAMS)
     msg = MIMEMultipart()
     msg.preamble = f'{name}, примите благодарность!'
     msg['Subject'] = f'{name}, примите благодарность!'
